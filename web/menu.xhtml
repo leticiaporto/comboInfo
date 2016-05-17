@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"> <!-- bibliotecas -->
+
+<f:view renderKitId="PRIMEFACES_MOBILE" />  <!-- ativando apenas os componentes mobile -->
+
+<h:head>
+	<h:outputScript name="jquery/jquery-plugins.js" library="primefaces"/>
+</h:head>
+
+<h:body>
+
+	<pm:page title="#{combo.nome}"> <!-- nova página/recebendo do getNomeLanchonete de Lanchonete-->
+
+		<pm:header title="#{combo.nome}" /> <!-- cabeçalho -->
+		<pm:content>  <!-- conteudo -->
+			<h:form id="form">  <!-- formulário -->
+
+				<p:accordionPanel>  <!-- modelo acordeano -->
+					<c:forEach begin="1" end="#{combo.totalItens}" var="n">  <!-- for para criar 3 páginas dentro do accordionPanel -->
+						<p:tab title="#{combo.getCombo(n).nome}">  <!-- retorna o nome do sanduiche -->
+							<p:outputPanel style="text-align: center">
+								<div align="center">
+									<p:graphicImage
+										value="/imgs/#{n}.jpg"
+										width="150" height="100" />
+									<p />
+									<h:outputText
+										value="#{combo.getCombo(n).itens}" />
+									<p />
+									<h:outputText value="Preço: R$#{combo.getCombo(n).preco}0" />
+									<p />
+									<p:commandButton value="Comprar"
+										action="#{combo.comprar(n)}" onclick="PF('confirmMessage').show();"> 
+									</p:commandButton>
+									<p:dialog header="INFO" widgetVar="confirmMessage" showEffect="pop">
+										<h:outputText value="Compra efetuada, #{combo.nomeCliente}!"/>
+										<p:commandButton value="OK" onclick="PF('confirmMessage').hide();" action="end.xhtml" >
+										</p:commandButton>
+									</p:dialog>
+									
+										
+								</div>
+							</p:outputPanel>
+						</p:tab>
+					</c:forEach>
+				</p:accordionPanel>
+
+			</h:form>
+		</pm:content>
+
+	</pm:page>
+
+</h:body>
+
+</html>
