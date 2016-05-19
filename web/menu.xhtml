@@ -14,30 +14,31 @@
 
 <h:body>
 
-	<pm:page title="#{combo.nome}"> <!-- nova página/recebendo do getNomeLanchonete de Lanchonete-->
+	<pm:page title="#{combo.nome}"> 
 
 		<pm:header title="#{combo.nome}" /> <!-- cabeçalho -->
 		<pm:content>  <!-- conteudo -->
 			<h:form id="form">  <!-- formulário -->
 
-				<p:accordionPanel>  <!-- modelo acordeano -->
-					<c:forEach begin="1" end="#{combo.totalItens}" var="n">  <!-- for para criar 3 páginas dentro do accordionPanel -->
-						<p:tab title="#{combo.getCombo(n).nome}">  <!-- retorna o nome do sanduiche -->
+				<p:accordionPanel>  <!-- modelo acordeon -->
+					<c:forEach begin="1" end="#{combo.totalItens}" var="n">  <!-- for para criar 4 "abas" dentro do accordionPanel -->
+						<p:tab title="#{combo.getCombo(n).nome}">  <!-- Retorna o nome do combo -->
 							<p:outputPanel style="text-align: center">
+								
 								<div align="center">
 									<p:graphicImage
 										value="/imgs/#{n}.jpg"
 										width="150" height="100" />
 									<p />
 									<h:outputText
-										value="#{combo.getCombo(n).itens}" />
+										value="#{combo.getCombo(n).itens}" /> <!-- Retorna os itens do combo -->
 									<p />
-									<h:outputText value="Preço: R$#{combo.getCombo(n).preco}0" />
+									<h:outputText value="Preço: R$#{combo.getCombo(n).preco}0" /> <!-- Retorna o preço do combo -->
 									<p />
 									<p:commandButton value="Comprar"
 										action="#{combo.comprar(n)}" onclick="PF('confirmMessage').show();"> 
 									</p:commandButton>
-									<p:dialog header="INFO" widgetVar="confirmMessage" showEffect="pop">
+									<p:dialog header="ComboInfo" widgetVar="confirmMessage" showEffect="pop">
 										<h:outputText value="Compra efetuada, #{combo.nomeCliente}!"/>
 										<p:commandButton value="OK" onclick="PF('confirmMessage').hide();" action="end.xhtml" >
 										</p:commandButton>

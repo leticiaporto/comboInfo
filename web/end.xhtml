@@ -4,7 +4,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile"> <!-- namespace: bilbiotecas -->
+	xmlns:pm="http://primefaces.org/mobile"> 
 
 <f:view renderKitId="PRIMEFACES_MOBILE" />
 
@@ -13,16 +13,17 @@
 </h:head>
 
 <h:body>
-
-	<pm:page id="Combo">
-
-		<pm:header title="#{combo.nome}" />
+	<pm:page title="#{combo.nome}"> 
+	
+		<pm:header title="#{combo.nome}" /> <!-- cabeçalho -->
+		
 		<pm:content>
-				<h:outputText value="Obrigada pela preferência. Vá até a recepção retirar e efetuar o pagamento do(s) seu(s) produto(s), #{combo.nomeCliente}. "/>
+			<div align="center">
+				<h:outputText value="Obrigada pela preferência, #{combo.nomeCliente}! Vá até a recepção retirar e efetuar o pagamento do(s) seu(s) produto(s). "/>
+			</div>
 		</pm:content>
-
+		
 	</pm:page>
-
 </h:body>
 
 </html>
