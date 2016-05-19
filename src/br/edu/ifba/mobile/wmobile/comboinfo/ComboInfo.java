@@ -36,10 +36,6 @@ public class ComboInfo {
 	public String getNome() {
 		return "ComboInfo";
 	}
-
-	public String getNomeCurto() {
-		return "Combo";
-	}
 	
 	public IItens getCombo(int numero){
 		return menu.get(numero-1);
@@ -72,4 +68,3 @@ public class ComboInfo {
 		this.nomeCliente=nomeCliente;
 	}
 }
-
