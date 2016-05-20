@@ -6,7 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import br.edu.ifba.mobile.wmobile.comboinfo.menu.IItens;
+import br.edu.ifba.mobile.wmobile.comboinfo.menu.ICombo;
 import br.edu.ifba.mobile.wmobile.comboinfo.menu.Notebook;
 import br.edu.ifba.mobile.wmobile.comboinfo.menu.NotebookMaisUm;
 import br.edu.ifba.mobile.wmobile.comboinfo.menu.NotebookMaisDois;
@@ -15,33 +15,33 @@ import br.edu.ifba.mobile.wmobile.comboinfo.menu.NotebookMaisTres;
 @ManagedBean(name = "combo")
 @SessionScoped
 public class ComboInfo {
-	private static List<IItens> menu = new ArrayList<IItens>();
+	private static List<ICombo> menu = new ArrayList<ICombo>();
 	private String email="";
 	private String nomeCliente="";
 	
 	static {
-		IItens item = new Notebook();
-		menu.add(item);
+		ICombo combo = new Notebook();
+		menu.add(combo);
 		
-		item = new NotebookMaisUm(item);
-		menu.add(item);
+		combo = new NotebookMaisUm(combo);
+		menu.add(combo);
 		
-		item = new NotebookMaisDois(item);
-		menu.add(item);
+		combo = new NotebookMaisDois(combo);
+		menu.add(combo);
 		
-		item = new NotebookMaisTres(item);
-		menu.add(item);
+		combo = new NotebookMaisTres(combo);
+		menu.add(combo);
 	}
 	
 	public String getNome() {
 		return "ComboInfo";
 	}
 	
-	public IItens getCombo(int numero){
+	public ICombo getCombo(int numero){
 		return menu.get(numero-1);
 	}
 	
-	public int getTotalItens(){
+	public int getTotalCombos(){
 		return menu.size();
 	}
 	

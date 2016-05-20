@@ -2,10 +2,10 @@ package br.edu.ifba.mobile.wmobile.comboinfo.menu;
 
 import java.util.List;
 
-public class NotebookMaisTres implements IItens {
-	private IItens anterior;
+public class NotebookMaisTres implements ICombo {
+	private ICombo anterior;
 	
-	public NotebookMaisTres(IItens anterior){
+	public NotebookMaisTres(ICombo anterior){
 		this.anterior=anterior;
 	}
 	

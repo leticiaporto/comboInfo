@@ -21,7 +21,7 @@
 			<h:form id="form">  <!-- formulário -->
 
 				<p:accordionPanel>  <!-- modelo acordeon -->
-					<c:forEach begin="1" end="#{combo.totalItens}" var="n">  <!-- for para criar 4 "abas" dentro do accordionPanel -->
+					<c:forEach begin="1" end="#{combo.totalCombos}" var="n">  <!-- for para criar 4 "abas" dentro do accordionPanel, uma para cada combo -->
 						<p:tab title="#{combo.getCombo(n).nome}">  <!-- Retorna o nome do combo -->
 							<p:outputPanel style="text-align: center">
 								

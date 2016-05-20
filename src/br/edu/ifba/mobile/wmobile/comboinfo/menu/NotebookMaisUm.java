@@ -2,11 +2,11 @@ package br.edu.ifba.mobile.wmobile.comboinfo.menu;
 
 import java.util.List;
 
-public class NotebookMaisUm implements IItens {
+public class NotebookMaisUm implements ICombo {
 
-	private IItens anterior;
+	private ICombo anterior;
 	
-	public NotebookMaisUm (IItens anterior) {
+	public NotebookMaisUm (ICombo anterior) {
 		this.anterior = anterior;
 	}
 	@Override

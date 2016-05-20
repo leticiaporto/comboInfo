@@ -3,7 +3,7 @@ package br.edu.ifba.mobile.wmobile.comboinfo.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Notebook implements IItens {
+public class Notebook implements ICombo {
 
 	@Override
 	public String getNome() {
